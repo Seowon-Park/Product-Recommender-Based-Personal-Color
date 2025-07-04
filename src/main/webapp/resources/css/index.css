@@ -1,4 +1,3 @@
-/* index.css */
 * {
     margin: 0;
     padding: 0;
@@ -6,8 +5,8 @@
 }
 
 body {
-    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #f6faf6; /* 연초록 계열의 밝은 배경 */
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -16,11 +15,12 @@ body {
 }
 
 .container {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    background-color: white;
+    border: 1px solid #d4eadd;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.05);
     padding: 40px;
-    max-width: 500px;
+    max-width: 480px;
     width: 100%;
     text-align: center;
 }
@@ -30,60 +30,56 @@ body {
 }
 
 .header h1 {
-    color: #333;
-    font-size: 2.5em;
-    font-weight: 300;
+    color: #2f4f4f;
+    font-size: 2em;
+    font-weight: 600;
     margin-bottom: 10px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .header p {
-    color: #666;
-    font-size: 1.1em;
+    color: #5a7d66;
+    font-size: 1em;
     margin-bottom: 20px;
 }
 
 .self-diagnosis {
-    background: #f8f9fa;
-    border-radius: 15px;
+    background-color: #f0f8f5;
+    border-radius: 12px;
     padding: 20px;
     margin-bottom: 30px;
-    border: 2px dashed #667eea;
+    border: 1px dashed #a4d4b4;
 }
 
 .self-diagnosis h3 {
-    color: #333;
+    color: #2f4f4f;
     margin-bottom: 10px;
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 
 .self-diagnosis p {
     color: #666;
+    font-size: 0.95em;
     margin-bottom: 15px;
     line-height: 1.5;
 }
 
 .btn-diagnosis {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-color: #94d3a2;
     color: white;
     border: none;
-    padding: 12px 24px;
-    border-radius: 25px;
-    font-size: 1em;
-    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.95em;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
     text-decoration: none;
     display: inline-block;
     margin-bottom: 10px;
 }
 
 .btn-diagnosis:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    background-color: #78c191;
 }
 
 .divider {
@@ -97,13 +93,13 @@ body {
     content: '';
     flex: 1;
     height: 1px;
-    background: #e0e0e0;
+    background: #d8e8df;
 }
 
 .divider span {
     padding: 0 15px;
-    color: #666;
-    font-size: 0.9em;
+    color: #999;
+    font-size: 0.85em;
 }
 
 .form-section {
@@ -111,9 +107,9 @@ body {
 }
 
 .form-section h3 {
-    color: #333;
+    color: #2f4f4f;
     margin-bottom: 20px;
-    font-size: 1.3em;
+    font-size: 1.1em;
     text-align: center;
 }
 
@@ -125,96 +121,62 @@ body {
     display: block;
     margin-bottom: 8px;
     color: #333;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .form-group select {
     width: 100%;
-    padding: 12px 16px;
-    border: 2px solid #e0e0e0;
-    border-radius: 10px;
-    font-size: 1em;
-    background: white;
+    padding: 12px;
+    border: 1px solid #cce0d5;
+    border-radius: 8px;
+    font-size: 0.95em;
+    background-color: #fff;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease;
 }
 
 .form-group select:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.form-group select:hover {
-    border-color: #667eea;
+    border-color: #94d3a2;
+    box-shadow: 0 0 0 3px rgba(148, 211, 162, 0.2);
 }
 
 .btn-submit {
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    background-color: #5cbf90;
     color: white;
     border: none;
-    padding: 15px 30px;
-    border-radius: 25px;
-    font-size: 1.1em;
+    padding: 14px 28px;
+    border-radius: 24px;
+    font-size: 1em;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
     width: 100%;
     margin-top: 10px;
 }
 
 .btn-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(118, 75, 162, 0.3);
+    background-color: #4ca97d;
 }
 
 .btn-submit:disabled {
     background: #ccc;
     cursor: not-allowed;
-    transform: none;
     box-shadow: none;
 }
 
-.color-options {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin-top: 10px;
-}
-
-.color-option {
-    padding: 10px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    font-size: 0.9em;
-}
-
-.color-option:hover {
-    border-color: #667eea;
-    background: #f8f9ff;
-}
-
-.color-option.selected {
-    border-color: #667eea;
-    background: #667eea;
-    color: white;
-}
-
 .info-text {
-    font-size: 0.9em;
-    color: #666;
+    font-size: 0.85em;
+    color: #777;
     margin-top: 15px;
     text-align: center;
     line-height: 1.5;
 }
 
-/* 반응형 디자인 */
+/* 반응형 */
 @media (max-width: 768px) {
     body {
-        padding: 10px;
+        padding: 15px;
     }
 
     .container {
@@ -222,26 +184,18 @@ body {
     }
 
     .header h1 {
-        font-size: 2em;
-    }
-
-    .color-options {
-        grid-template-columns: 1fr;
+        font-size: 1.8em;
     }
 }
 
 @media (max-width: 480px) {
     .header h1 {
-        font-size: 1.8em;
-    }
-
-    .container {
-        padding: 25px 15px;
+        font-size: 1.6em;
     }
 
     .btn-diagnosis,
     .btn-submit {
-        padding: 12px 20px;
-        font-size: 1em;
+        padding: 12px 18px;
+        font-size: 0.95em;
     }
 }
