@@ -20,7 +20,7 @@
     <!-- 헤더 섹션 -->
     <div class="header">
         <h1>🎨 ${personalColor} AI 맞춤 추천</h1>
-        <p>OpenAI Vision API가 분석한 당신만의 특별한 컬렉션</p>
+        <p>OpenAI Vision API가 분석한 당신만의 특별한 신상 컬렉션</p>
         <div class="ai-badge">🤖 AI 색상 분석 적용</div>
     </div>
 
