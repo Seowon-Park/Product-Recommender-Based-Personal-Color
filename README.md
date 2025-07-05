@@ -1,4 +1,4 @@
-### project[Spring-Java/OpenAI vision API-python] 
+### project[Spring/Flask/OpenAI vision API] 
 2023.05.18 -
 # 퍼스널 컬러 기반 상품 추천 웹페이지
 
@@ -24,8 +24,8 @@ Flask 서버에서 OpenAI Vision API를 통해 상품 이미지의 주요 색상
 ### 기술스택
 ● 백엔드 프레임워크: Spring (Tomcat 9 / javax.servlet 기반)<br/>
 ● JDK 버전: JDK 21<br/>
-● AI 서버: Flask (Python 기반)<br/>
+● AI 서버: Flask(Python 기반)<br/>
 ● AI 모델 및 이미지 처리: OpenAI Vision API<br/>
 
 ### 블로그 기록
-<a href="http://codetails.tistory.com">[퍼스널 컬러 기반 상품 추천 웹페이지 | Spring, AI서버(Flask), AI모델(OpenAI Vision API)]<br/>
+<a href="https://codetails.tistory.com/21">[퍼스널 컬러 기반 상품 추천 웹페이지 | Spring, AI서버(Flask), AI모델(OpenAI Vision API)]<br/>
