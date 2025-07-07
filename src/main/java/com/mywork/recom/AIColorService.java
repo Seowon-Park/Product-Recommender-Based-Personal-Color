@@ -155,38 +155,78 @@ public class AIColorService {
         System.out.println("      상품: " + productPersonalColor);
         System.out.println("      신뢰도: " + confidence + "%");
 
-        // 1. 신뢰도가 너무 낮으면 제외 (40% 미만)
-        if (confidence < 40) {
-            System.out.println("      결과: 신뢰도 부족 (" + confidence + "% < 40%)");
+        // 1. 기본 신뢰도 체크 (30% 미만은 제외)
+        if (confidence < 30) {
+            System.out.println("      결과: 신뢰도 부족 (" + confidence + "% < 30%)");
             return false;
         }
 
-        // 2. 정확히 일치하는 경우
+        // 2. 정확히 일치하는 경우 (같은 분류군)
         if (userPersonalColor.equals(productPersonalColor)) {
-            System.out.println("      결과: 정확히 일치!");
+            System.out.println("      결과: 정확히 일치! (같은 분류군)");
             return true;
         }
 
-        // 3. 계절별 호환성 확인
+        // 3. 계절과 분류 추출
         String userSeason = extractSeason(userPersonalColor);
         String productSeason = extractSeason(productPersonalColor);
+        String userType = extractType(userPersonalColor);
+        String productType = extractType(productPersonalColor);
 
-        System.out.println("      사용자 계절: " + userSeason);
-        System.out.println("      상품 계절: " + productSeason);
+        System.out.println("      사용자 계절: " + userSeason + ", 분류: " + userType);
+        System.out.println("      상품 계절: " + productSeason + ", 분류: " + productType);
 
-        if (userSeason.equals(productSeason)) {
-            System.out.println("      결과: 같은 계절 - 호환됨!");
+        // 4. 같은 계절인 경우
+        if (userSeason.equals(productSeason) && !userSeason.equals("알 수 없음")) {
+            // 4-1. 같은 분류군이면 무조건 매칭
+            if (userType.equals(productType)) {
+                System.out.println("      결과: 같은 계절, 같은 분류 - 호환됨!");
+                return true;
+            }
+            // 4-2. 다른 분류지만 같은 계절이면 신뢰도 40% 이상일 때만 매칭
+            else if (confidence >= 40) {
+                System.out.println("      결과: 같은 계절, 다른 분류 + 신뢰도 40% 이상 - 호환됨!");
+                return true;
+            } else {
+                System.out.println("      결과: 같은 계절, 다른 분류이지만 신뢰도 부족 (" + confidence + "% < 40%)");
+                return false;
+            }
+        }
+
+        // 5. 다른 계절인 경우 - 매칭 안함
+        if (!userSeason.equals(productSeason) &&
+                !userSeason.equals("알 수 없음") &&
+                !productSeason.equals("알 수 없음")) {
+            System.out.println("      결과: 다른 계절 - 호환되지 않음");
+            return false;
+        }
+
+        System.out.println("      결과: 호환되지 않음 (기타 조건)");
+        return false;
+    }
+
+    /**
+     * 계절이 '알 수 없음'인 상품 확인 (추천 상품 외 제안용)
+     */
+    public boolean isUnknownSeasonProduct(String productPersonalColor, int confidence) {
+        System.out.println("    [알 수 없음 상품 체크] 시작");
+        System.out.println("      상품: " + productPersonalColor);
+        System.out.println("      신뢰도: " + confidence + "%");
+
+        // 1. 신뢰도가 너무 낮으면 제외
+        if (confidence < 30) {
+            System.out.println("      결과: 신뢰도 부족 (" + confidence + "% < 30%)");
+            return false;
+        }
+
+        // 2. 계절이 '알 수 없음'인지 확인
+        String productSeason = extractSeason(productPersonalColor);
+        if ("알 수 없음".equals(productSeason)) {
+            System.out.println("      결과: 알 수 없음 상품으로 분류");
             return true;
         }
 
-
-        // 5. 신뢰도 40% 이상이면 매칭 허용
-        if (confidence >= 40) {
-            System.out.println("      결과: 신뢰도 40% 이상으로 매칭 허용");
-            return true;
-        }
-
-        System.out.println("      결과: 호환되지 않음");
+        System.out.println("      결과: 알려진 계절 상품");
         return false;
     }
 
@@ -198,6 +238,42 @@ public class AIColorService {
         if (personalColor.startsWith("여름")) return "여름";
         if (personalColor.startsWith("가을")) return "가을";
         if (personalColor.startsWith("겨울")) return "겨울";
+        return "알 수 없음";
+    }
+
+    /**
+     * 퍼스널 컬러에서 분류 타입 추출 (브라이트, 라이트, 뮤트, 딥 등)
+     */
+    private String extractType(String personalColor) {
+        // 계절 제거 후 분류 추출
+        String type = personalColor;
+
+        // 계절 부분 제거
+        if (type.startsWith("봄")) {
+            type = type.substring(1);
+        } else if (type.startsWith("여름")) {
+            type = type.substring(2);
+        } else if (type.startsWith("가을")) {
+            type = type.substring(2);
+        } else if (type.startsWith("겨울")) {
+            type = type.substring(2);
+        }
+
+        // 분류 타입 정규화
+        if (type.contains("브라이트") || type.contains("bright")) {
+            return "브라이트";
+        } else if (type.contains("라이트") || type.contains("light")) {
+            return "라이트";
+        } else if (type.contains("뮤트") || type.contains("mute") || type.contains("소프트") || type.contains("soft")) {
+            return "뮤트";
+        } else if (type.contains("딥") || type.contains("deep") || type.contains("다크") || type.contains("dark")) {
+            return "딥";
+        } else if (type.contains("웜") || type.contains("warm")) {
+            return "웜";
+        } else if (type.contains("쿨") || type.contains("cool")) {
+            return "쿨";
+        }
+
         return "알 수 없음";
     }
 
