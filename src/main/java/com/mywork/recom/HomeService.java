@@ -23,7 +23,7 @@ public class HomeService {
     private AIColorService aiColorService;
 
     // 테스트용 상품 개수 제한
-    private static final int TEST_PRODUCT_LIMIT = 5;
+    private static final int TEST_PRODUCT_LIMIT = 6;
 
     public String getPersonalColor(int personal) {
         String[] color = {"", "봄 라이트", "봄 브라이트", "여름 라이트", "여름 브라이트", "여름 뮤트", "가을 뮤트", "가을 스트롱", "가을 딥", "겨울 브라이트", "겨울 딥"};

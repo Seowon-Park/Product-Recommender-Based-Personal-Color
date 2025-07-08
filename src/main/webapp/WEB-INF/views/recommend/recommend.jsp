@@ -19,9 +19,9 @@
 <div class="container">
     <!-- 헤더 섹션 -->
     <div class="header">
-        <h1>🎨 ${personalColor} AI 맞춤 추천</h1>
+        <h1>${personalColor} AI 맞춤 추천</h1>
         <p>OpenAI Vision API가 분석한 당신만의 특별한 신상 컬렉션</p>
-        <div class="ai-badge">🤖 AI 색상 분석 적용</div>
+        <div class="ai-badge">AI 색상 분석 적용</div>
     </div>
 
     <!-- 통계 섹션 -->
@@ -46,17 +46,17 @@
     <div class="messages">
         <c:if test="${not empty successMessage}">
             <div class="message success-message">
-                ✅ ${successMessage}
+                ${successMessage}
             </div>
         </c:if>
         <c:if test="${not empty infoMessage}">
             <div class="message info-message">
-                ℹ️ ${infoMessage}
+                ${infoMessage}
             </div>
         </c:if>
         <c:if test="${not empty errorMessage}">
             <div class="message error-message">
-                ⚠️ ${errorMessage}
+                ${errorMessage}
             </div>
         </c:if>
     </div>
@@ -65,7 +65,7 @@
     <div class="products-section">
         <c:choose>
             <c:when test="${not empty items and totalCount > 0}">
-                <h2>🛍️ AI가 엄선한 ${personalColor} 맞춤 상품</h2>
+                <h2>AI가 엄선한 ${personalColor} 맞춤 상품</h2>
                 <div class="product-grid">
                     <c:forEach var="item" items="${items}" varStatus="status">
                         <div class="product-card">
@@ -90,9 +90,9 @@
             <c:otherwise>
                 <div class="no-products">
                     <div class="spinner"></div>
-                    <h3>🔍 ${personalColor} 톤 상품 분석 중...</h3>
+                    <h3>${personalColor} 톤 상품 분석 중...</h3>
                     <p>AI가 당신의 퍼스널 컬러에 완벽하게 어울리는 상품들을 찾고 있습니다.</p>
-                    <p><small>💡 색상 분석에는 시간이 소요될 수 있습니다. 잠시만 기다려주세요!</small></p>
+                    <p><small>색상 분석에는 시간이 소요될 수 있습니다. 잠시만 기다려주세요!</small></p>
                 </div>
             </c:otherwise>
         </c:choose>

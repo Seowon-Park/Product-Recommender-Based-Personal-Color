@@ -18,16 +18,16 @@
 <div class="container">
     <!-- 헤더 -->
     <div class="header">
-        <h1>🎨 퍼스널 컬러 AI 추천</h1>
+        <h1>퍼스널 컬러 AI 추천</h1>
         <p>당신만의 완벽한 컬러를 찾아보세요</p>
     </div>
 
     <!-- 자가진단 섹션 -->
     <div class="self-diagnosis">
-        <h3>🔍 퍼스널 컬러를 모르겠다면?</h3>
+        <h3>퍼스널 컬러를 모르겠다면?</h3>
         <p>전문적인 자가진단으로 당신의 퍼스널 컬러를 정확히 찾아보세요!</p>
         <a href="https://mycolor.kr/" target="_blank" class="btn-diagnosis">
-            📊 무료 자가진단 받기
+            무료 자가진단 받기
         </a>
         <div class="info-text">
             <small>* 새 창에서 진단 후 결과를 확인하고 돌아와 주세요</small>
@@ -41,7 +41,7 @@
 
     <!-- 직접 선택 섹션 -->
     <div class="form-section">
-        <h3>💡 이미 퍼스널 컬러를 아신다면</h3>
+        <h3>이미 퍼스널 컬러를 아신다면</h3>
 
         <form action="${pageContext.request.contextPath}/recommend" method="post" id="colorForm">
             <div class="form-group">
@@ -70,14 +70,14 @@
             </div>
 
             <button type="submit" class="btn-submit" id="submitBtn" disabled>
-                🎯 AI 맞춤 상품 추천받기
+                AI 맞춤 상품 추천받기
             </button>
         </form>
     </div>
 
     <!-- 안내 메시지 -->
     <div class="info-text">
-        <p>🤖 AI가 당신의 퍼스널 컬러에 완벽하게 어울리는 패션 아이템을 찾아드립니다</p>
+        <p>AI가 당신의 퍼스널 컬러에 완벽하게 어울리는 패션 아이템을 찾아드립니다</p>
     </div>
 </div>
 
